@@ -9,4 +9,4 @@ Install [Compass](http://compass-style.org/install/), [Bower](http://bower.io/),
 Creating a new distribution build
 --------------------
 
-If you want to compile a build, type `grunt build` and it will write to your 'dist' folder.
+To compile a distribution build, type `grunt build` and it will write to your 'dist' folder.

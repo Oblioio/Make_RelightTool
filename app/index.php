@@ -13,7 +13,7 @@
         <meta property="og:description" content=""/>
         <meta property="og:site_name" content=""/>
         <meta itemprop="name" content="" />
-        <title></title>
+        <title>RELIGHT</title>
         
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
@@ -51,13 +51,11 @@
                 return base + path;
             }
 
-            window.FLOCK = window.FLOCK || {};
-            FLOCK.settings = FLOCK.settings || {};
-            FLOCK.settings.base_path = parsePath();
-            FLOCK.settings.base_url = '';
-            FLOCK.settings.deeplink = '<?php echo $deeplink; ?>';
-            FLOCK.settings.mode = '<?php if ( isset( $_GET["mode"] ) ) echo $_GET["mode"] ?>';
-            FLOCK.settings.instaLoad = '<?php echo $instaload ?>';
+            window.oblio = window.oblio || {};
+            oblio.settings = oblio.settings || {};
+            oblio.settings.base_path = parsePath();
+            oblio.settings.base_url = '';
+            oblio.settings.deeplink = '<?php echo $deeplink; ?>';
 
         </script>
 
@@ -66,7 +64,6 @@
         <!-- build:js js/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>   
         <!-- /build -->
-        
     </head>
     <!-- build:[class]:dist prod -->
     <body class="dev">
@@ -77,20 +74,79 @@
         }
         </script>
 
-        <div id="shell" class="absFull epk">
-            <div id="backgroundContainer">
+        <div id="shell" class="cover" style="visibility:hidden">
+            <div id="sections" class="cover">
+                <div id="home" class="cover">
+                    <div id="homeContent">
+                        <div id="home_oblioLogo">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147 147">
+                              <circle cx="74.3" cy="73.3" r="69.1" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="63.2" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="57.4" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="51.7" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="45.7" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="39.9" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="33.8" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                              <circle cx="74.3" cy="73.3" r="28.2" fill="none" stroke="#3F3F3F" stroke-width="3" stroke-miterlimit="10"/>
+                            </svg>
+                        </div>
+                        <div id="homeTitle" class="relightTitle" >RELIGHT</div>
+                        <div id="homeIntro">This is a quick tool for re-lighting still photography<br/>A companion piece to <a href="http://makezine.com/" target="_blank">this article.</a></div>
+                        <a class="siteButton large" id="homeStart" href="#">GET STARTED</a>
+                        <div id="homeJewel"></div>
+                    </div>
+                </div>
+                <div id="upload" class="cover">
+                    <div id="uploadContent">
+                        <div id="uploadTitle" class="relightTitle" >RELIGHT</div>
+                        <div id="uploadInstructions">Upload your corresponding images<br/>or use the default images.</div>
+                        <ul id="uploadImages">
+                            <li id="uploadLeft"><a href="#"></a></li>
+                            <li id="uploadTop"><a href="#"></a></li>
+                            <li id="uploadFront"><a href="#"></a></li>
+                            <li id="uploadBottom"><a href="#"></a></li>
+                            <li id="uploadRight"><a href="#"></a></li>
+                        </ul>
+                        <a class="siteButton" id="useDefault" href="#">USE DEFAULT IMAGES</a>
+                        <a class="siteButton" id="uploadDone" href="#">CONTINUE</a>
+                        
+                        <input type="file" id="uploadInput" multiple accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+                    </div>
+                </div>
+                <div id="viewer" class="cover">
+                    <div id="viewContent">
+                        <canvas id="viewCanvas" class="cover"></canvas>
+                        <div id="viewInstructions" class="cover"></div>
+                    </div>
+                    <div id="viewTop">
+                        <a class="siteButton" id="viewRestart" href="#">START OVER</a>
+                        <a class="siteButton" id="viewContinue" href="#">CONTINUE</a>
+                    </div>
+                    <div class="viewSlider" id="sliderLeft">
+                        <div class="viewSliderLabel"></div>
+                        <div class="viewSliderTrack"></div>
+                        <div class="viewSliderHandle"></div>
+                    </div>
+                    <div class="viewSlider" id="sliderBottom">
+                        <div class="viewSliderLabel"></div>
+                        <div class="viewSliderTrack"></div>
+                        <div class="viewSliderHandle"></div>
+                    </div>
+                    <div class="viewSlider" id="sliderRight">
+                        <div class="viewSliderLabel"></div>
+                        <div class="viewSliderTrack"></div>
+                        <div class="viewSliderHandle"></div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div id="oblioLoader">
-            
-        </div>
-        
-        <script src="http://js.pusher.com/2.0/pusher.min.js" type="text/javascript"></script>
-        
+                
         <!-- build:js js/main.js -->
         <script data-main="js/main" src="bower_components/requirejs/require.js"></script>
         <!-- /build -->
+                
+        <script src="https://use.typekit.net/gsg7uuu.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
         
     </body>
 </html>

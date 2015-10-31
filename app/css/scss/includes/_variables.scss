@@ -7,18 +7,20 @@
  */
 $black: #000; // black     
 $white: #fff; // white
-$light_grey: #b8b8b8;
-$primary_color: $black;
-$secondary_color: $light_grey;
+$grey: #383838;
+$primary_color: #fff;
+$secondary_color: $grey;
+$link_color: #7f4139;
 
 /*
  * FONTS
  */
-$primary_font: "Dosis", "Helvetica Neue", Helvetica, sans-serif;
-$primary_light: 300;
-$primary_normal: 500;
-$primary_medium: 500;
-$primary_bold: 500;
+ 
+$primary_font: "calluna",serif;
+$primary_light: 400;
+$primary_normal: 400;
+$primary_medium: 400;
+$primary_bold: 400;
 
 $header_height: 0;
 $footer_height: 70px;

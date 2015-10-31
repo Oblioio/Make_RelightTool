@@ -17,17 +17,19 @@
 
 html {
     font-size: 100%; // 16px;
+    height: 100%;
 }
 
 body {
     
+    font-style: italic;
     color: $primary_color;
     background: #000;
     font-family: $primary_font;
     font-weight: $primary_normal;
-    letter-spacing: 1px;
+    font-weight: $primary_normal;
+    letter-spacing: .2em;
     font-size: .625em; // 10px;
-    line-height: 1.5em;
     overflow: hidden;
     height: 100%;
     
@@ -48,10 +50,10 @@ body {
 }
 
 a {
-    color: $primary_color;
+    color: $link_color;
     text-decoration: none;
     .no-touch &:hover {
-        color: $secondary_color;
+        color: $primary_color;
     }
 }
 
@@ -96,6 +98,11 @@ h1 {
     height: 100%;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
 
 @import 'sections/framework';

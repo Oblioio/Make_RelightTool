@@ -1,0 +1,61 @@
+{
+    "settings": {
+        "dimensions": {
+            "width": 1600,
+            "height": 1067
+        },
+        "autoRender": true
+    },
+    
+    "textures": {
+        "frontTex": "",
+        "topTex": "",
+        "bottomTex": "",
+        "leftTex": "",
+        "rightTex": ""
+    },
+    
+    "JSPrograms": {
+    },
+    
+    "GLPrograms": {
+        "combine2Normal": {
+            "vertexShader": "assets/alignment/standard_wAdjust.vert",
+            "fragmentShader": "assets/alignment/combine2Normal.frag",
+            "uniforms": {
+                    "u_adjustment": { "type": "4m"},
+                    "u_left": { "type": "t" },
+                    "u_right": { "type": "t" },
+                    "u_top": { "type": "t" },
+                    "u_bottom": { "type": "t" }
+            }
+        }
+    },
+    
+    "connections": [
+        {
+            "source":   {   "id":   "topTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_top" }
+        },
+        {
+            "source":   {   "id":   "bottomTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_bottom" }
+        },
+        {
+            "source":   {   "id":   "leftTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_left" }
+        },
+        {
+            "source":   {   "id":   "rightTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_right" }
+        },
+        {
+            "source":   {   "id":   "combine2Normal" },
+            "dest":     {   "id":   "canvas" }
+        }
+    ]
+}

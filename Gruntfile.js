@@ -26,7 +26,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [
                     {expand: true, cwd: appConfig.app + '/', src: ['./*.php', '!./index.php','./*.html', './*.png', './*.ico'], dest: appConfig.dist + '/', filter: 'isFile'},
-                    {expand: true, cwd: appConfig.app, src: ['php/**', 'json/**'], dest: appConfig.dist + '/'}, // includes files in path and its subdirs
+                    {expand: true, cwd: appConfig.app, src: ['php/**', 'new/**', 'json/**'], dest: appConfig.dist + '/'}, // includes files in path and its subdirs
                ]
             }
         },
@@ -85,28 +85,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        /**
-        * This requires that you install ffmpeg
-        * I got it working with 'brew install ffmpeg --with-libvorbis' 
-        */
-        audiosprite : {
-            all : {
-                // The path to save the output file
-                output: appConfig.app + '/audio/audiosprite',
-
-                // The uncompressed audio input
-                files: appConfig.app + '/audiosprite/*.{wav,mp3}',
-
-                // The export filetypes
-                export: 'm4a,ogg,mp3',
-
-                // The export bitrate
-                bitrate: 48,
-
-                // Include silence sprite of 5 seconds
-                silence: 5
-            }
-        },
         compass: {                  // Task
             dist: {                   // Target
                 options: {              // Target options
@@ -130,11 +108,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-audiosprite');
     grunt.loadNpmTasks('grunt-processhtml');
 
     grunt.registerTask('build', ['requirejs:dist', 'imagemin', 'compass:dist', 'uglify:dist', 'copy:dist', 'processhtml:dist']);
     grunt.registerTask('watchscss', ['compass:dev']);
-    grunt.registerTask('compileaudiosprite', ['audiosprite:all']);
 
 };

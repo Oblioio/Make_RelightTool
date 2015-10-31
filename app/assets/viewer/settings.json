@@ -1,0 +1,114 @@
+{
+    "settings": {
+        "dimensions": {
+            "width": 1600,
+            "height": 1067
+        }
+    },
+    
+    "textures": {
+        "diffuseTexture": "~/new/full.jpg",
+        "topTex": "~/new/top.jpg",
+        "bottomTex": "~/new/below.jpg",
+        "leftTex": "~/new/left.jpg",
+        "rightTex": "~/new/right.jpg"
+    },
+    
+    "JSPrograms": {
+        "mousePos": {
+            "id": "mousePos",
+            "dependencies": ["assets/jsPrograms/mousePos.js"],
+            "canvasCoords": true
+        }  
+    },
+    
+    "GLPrograms": { 
+        "normalMap": {
+            "vertexShader": "~/standard.vert",
+            "fragmentShader": "~/light.frag",
+            "uniforms": {
+                    "u_imageDiff": {
+                        "type":     "t",
+                        "val":      null
+                    },
+                    "u_imageNorm": {
+                        "type":     "t",
+                        "val":      null
+                    },
+                    "u_mLocation": {
+                        "type":     "2f",
+                        "val":      [0.35, 0.35]
+                    },
+                    "u_cSize": {
+                        "type":     "2f",
+                        "val":      [1600, 1067]
+                    }
+            }
+        },
+        "combine2Normal": {
+            "vertexShader": "~/standard.vert",
+            "fragmentShader": "~/combine2Normal.frag",
+            "uniforms": {
+                    "u_left": {
+                        "type":     "t",
+                        "val":      null
+                    },
+                    "u_right": {
+                        "type":     "t",
+                        "val":      null
+                    },
+                    "u_top": {
+                        "type":     "t",
+                        "val":      null
+                    },
+                    "u_bottom": {
+                        "type":     "t",
+                        "val":      null
+                    }
+            }
+        }
+    },
+    
+    "connections": [
+        {
+            "source":   {   "id":   "topTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_top" }
+        },
+        {
+            "source":   {   "id":   "bottomTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_bottom" }
+        },
+        {
+            "source":   {   "id":   "leftTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_left" }
+        },
+        {
+            "source":   {   "id":   "rightTex" },
+            "dest":     {   "id":   "combine2Normal",
+                            "var":  "u_right" }
+        },
+        {
+            "source":   {   "id":   "mousePos" ,
+                            "var":  "position" },
+            "dest":     {   "id":   "normalMap",
+                            "var":  "u_mLocation" }
+        },     
+        {
+            "source":   {   "id":   "diffuseTexture" },
+            "dest":     {   "id":   "normalMap",
+                            "var":  "u_imageDiff" }
+        },
+        {
+            "source":   {   "id":   "combine2Normal"},
+            "dest":     {   "id":   "normalMap",
+                            "var":  "u_imageNorm" }
+        },
+        {
+            "source":   {   "id":   "normalMap" },
+            "dest":     {   "id":   "canvas" }
+        }
+    ]
+}

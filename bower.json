@@ -8,6 +8,6 @@
     "greensock": "~1.15.0",
     "almond": "~0.3.0",
     "oblio-utils": "Oblioio/oblio#master",
-    "dropzone": "~4.0.1"
+    "text": "~2.0.14"
   }
 }
